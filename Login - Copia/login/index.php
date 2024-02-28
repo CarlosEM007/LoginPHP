@@ -15,6 +15,8 @@ if(isset($_POST['btn_send'])){
         $sqlr = mysqli_query($connect, $sql);
 
         if(mysqli_num_rows($sqlr) > 0){
+                $senha = md5($pswtry);
+                $sql = "SELECT * FROM usuarios WHERE login = '$logintry' AND senha = '$senha'";
                 $sqlr = mysqli_query($connect, $sql);
                 mysqli_close($connect);
 
@@ -73,3 +75,4 @@ if(isset($_POST['btn_send'])){
     </footer>
 </body>
 </html>
+
